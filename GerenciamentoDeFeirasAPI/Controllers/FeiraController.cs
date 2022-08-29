@@ -42,18 +42,18 @@ namespace GerenciamentoDeFeirasAPI.Controllers
                 }
 
                 _context.SaveChanges();
-                _logger.LogInformation("Feira gravada com sucesso!");
+                _logger.LogInformation("Feira gravada/editada com sucesso!");
                 return new JsonResult(Ok(feira));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, "Erro");
-                return new JsonResult(new { message = "Erro ao gravar/edigar feira"});
+                return new JsonResult(new { message = "Erro ao gravar/edigar feira - Erro interno da API."});
             }
         }
 
         [HttpGet]
-        public JsonResult Get(string? distrito, string? regiao5, string? nome, string? bairro)
+        public JsonResult GetList(string? distrito, string? regiao5, string? nome, string? bairro)
         {
             _logger.LogInformation("Acessou o método de busca de Feira.");
             try
@@ -81,7 +81,7 @@ namespace GerenciamentoDeFeirasAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, "Erro");
-                return new JsonResult(new { message = "Erro ao buscar feira" });
+                return new JsonResult(new { message = "Erro ao buscar lista de feiras - Erro interno da API." });
             }
         }
 
@@ -107,24 +107,7 @@ namespace GerenciamentoDeFeirasAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, "Erro");
-                return new JsonResult(new { message = "Erro ao excluir feira" });
-            }
-        }
-
-        [HttpGet]
-        public JsonResult GetAll()
-        {
-            _logger.LogInformation("Acessou o método de buscar de lista de feiras.");
-            try
-            {
-                var result = _context.Feiras.ToList();
-
-                return new JsonResult(Ok(result));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message, "Erro");
-                return new JsonResult(new { message = "Erro ao excluir feira" });
+                return new JsonResult(new { message = "Erro ao excluir feira - Erro interno da API." });
             }
         }
     }

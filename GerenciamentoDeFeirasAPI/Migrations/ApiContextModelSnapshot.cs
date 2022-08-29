@@ -33,7 +33,7 @@ namespace GerenciamentoDeFeirasAPI.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Bairro")
-                        .IsRequired()
+                        .IsRequired(true)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("CodDist")
@@ -43,7 +43,7 @@ namespace GerenciamentoDeFeirasAPI.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Distrito")
-                        .IsRequired()
+                        .IsRequired(true)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Latitute")
@@ -56,7 +56,7 @@ namespace GerenciamentoDeFeirasAPI.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("NomeFeira")
-                        .IsRequired()
+                        .IsRequired(true)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Numero")
@@ -66,7 +66,7 @@ namespace GerenciamentoDeFeirasAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Regiao5")
-                        .IsRequired()
+                        .IsRequired(true)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Regiao8")
